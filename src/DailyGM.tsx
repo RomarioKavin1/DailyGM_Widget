@@ -18,7 +18,7 @@ export default function HomePage() {
   let isComplete = false;
 
   return (
-    <>
+    <div>
       {anonAadhaar.status == "logged-in" ? (
         <section className="my-3 ring-2 ring-indigo-400 rounded-xl p-3">
           <div className="mt-2 flex justify-between items-center">
@@ -52,12 +52,12 @@ export default function HomePage() {
               Powered by{" "}
               <span className="font-bold text-indigo-400">RPS Labs</span>
             </div>
-            <div>
+            {/* <div>
               <p>✅ Proof is valid</p>
               <AnonAadhaarProof
                 code={JSON.stringify(anonAadhaar.pcd, null, 2)}
               />
-            </div>
+            </div> */}
           </div>
         </section>
       ) : (
@@ -71,6 +71,6 @@ export default function HomePage() {
           </div>
         </section>
       )}
-    </>
+    </div>
   );
 }

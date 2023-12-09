@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { StarIcon, CheckCircleIcon } from "@heroicons/react/24/solid";
-import Aadhaar from "./components/Aadhar";
 import {
   LogInWithAnonAadhaar,
   useAnonAadhaar,
@@ -48,9 +47,17 @@ export default function HomePage() {
           <div className="py-2 px-3 text-xl text-center mt-7 text-white bg-indigo-600 rounded-lg mb-2">
             Post on Lens
           </div>
-          <div className="pt-2 text-xs">
-            Powered by{" "}
-            <span className="font-bold text-indigo-400">RPS Labs</span>
+          <div className="flex justify-between items-center">
+            <div className="pt-2 text-xs">
+              Powered by{" "}
+              <span className="font-bold text-indigo-400">RPS Labs</span>
+            </div>
+            <div>
+              <p>✅ Proof is valid</p>
+              <AnonAadhaarProof
+                code={JSON.stringify(anonAadhaar.pcd, null, 2)}
+              />
+            </div>
           </div>
         </section>
       ) : (
@@ -58,7 +65,10 @@ export default function HomePage() {
           <div className="mt-2 mb-3 font-bold">
             Connect with Anon Aadhar to continue
           </div>
-          <Aadhaar />
+          <div>
+            <LogInWithAnonAadhaar />
+            <p>{anonAadhaar?.status}</p>
+          </div>
         </section>
       )}
     </>
